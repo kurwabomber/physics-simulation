@@ -5,13 +5,19 @@ struct MathVector{
     angle: f64,
 }
 impl MathVector{
-    fn add_vector(&self, vec2:MathVector){
+    fn add_vector(&self, vec2:MathVector) -> MathVector{
         let result_base:f64 = (self.angle.to_radians().cos() * self.scalar) + (vec2.angle.to_radians().cos() * vec2.scalar);
         let result_height:f64 = (self.angle.to_radians().sin() * self.scalar) + (vec2.angle.to_radians().sin() * vec2.scalar);
         let result_hypotenuse:f64 = (result_base.powf(2.0) + result_height.powf(2.0)).sqrt();
         let result_angle:f64 = (result_height/result_hypotenuse).asin().to_degrees();
 
-        println!("The resultant vector is: {} at {} degrees.", result_hypotenuse, result_angle);
+        return MathVector{
+            scalar: result_hypotenuse, 
+            angle: result_angle,
+        }
+    }
+    fn print(&self){
+        println!("Vector has a magnitude of {} and an angle of {}.", self.scalar, self.angle);
     }
 }
 
@@ -45,6 +51,6 @@ pub fn solve_vector_addition() {
             break;
         }
     }
-    vec1.add_vector(vec2);
+    vec1.add_vector(vec2).print();
 }
 
