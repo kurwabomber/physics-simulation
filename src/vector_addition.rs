@@ -1,3 +1,5 @@
+use crate::stocks::get_user_number;
+
 struct MathVector{
     scalar: f64,
     angle: f64,
@@ -15,7 +17,6 @@ impl MathVector{
 
 pub fn solve_vector_addition() {
     println!("||| VECTOR ADDITION |||");
-
     let mut i = 0;
     let mut vec1 = MathVector{
         scalar: 0.0,
@@ -28,42 +29,8 @@ pub fn solve_vector_addition() {
 
     //Get our two vectors
     loop{
-        let mut input1 = String::new();
-        let mut input2 = String::new();
-
-        println!("What's the scalar value of vector #{}?", i+1);
-        match std::io::stdin().read_line(&mut input1){
-            Err(error) => {
-                println!("that's not a string Error: {}", error);
-                continue;
-            }
-            Ok(_) => println!(""),
-        }
-        
-        let value:f64 = match input1.trim().parse(){
-            Err(error) => {
-                println!("Hey bitch! that's not a number! Error: {}", error);
-                continue;
-            }
-            Ok(value) => value,
-        };
-
-        println!("What's the angle of vector #{}?", i+1);
-        match std::io::stdin().read_line(&mut input2){
-            Err(error) => {
-                println!("ay lmao!!!! that's not a string! Error: {}", error);
-                continue;
-            }
-            Ok(_) => println!(""),
-        }
-        
-        let angle:f64 = match input2.trim().parse(){
-            Err(error) => {
-                println!("Hey bitch! that's not a number! Error: {}", error);
-                continue;
-            }
-            Ok(angle) => angle,
-        };
+        let value:f64 = get_user_number(format!("What's the magnitude of vector #{}?", i+1));
+        let angle:f64 = get_user_number(format!("What's the angle of vector #{}?", i+1));
 
         if i == 0 {
             vec1.scalar = value;
