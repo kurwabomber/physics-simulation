@@ -12,4 +12,3 @@ pub fn solve_planar_movement() {
     }
         
 }
-
