@@ -76,9 +76,22 @@ pub fn solve_kinematics() {
         time = displacement/((fvelocity+velocity)/2.0);
     }
     //equation three, displacement = v0*t + (acceleration*time^2)
-    if displacement == -1.0 && velocity != -1.0 && time != -1.0 && acceleration != 1.0
+    if displacement == -1.0 && fvelocity != -1.0 && time != -1.0 && acceleration != 1.0
     {
-        displacement = (velocity*time) + (acceleration*f64::powf(time, 2.0))/2.0;
+        displacement = (fvelocity*time) + (acceleration*f64::powf(time, 2.0))/2.0;
+    }
+    else if fvelocity == -1.0 && displacement != -1.0 && time != -1.0 && acceleration != 1.0
+    {
+        fvelocity = (displacement - (acceleration*f64::powf(time, 2.0))/2.0 )/time;
+    }
+    else if acceleration == -1.0 && displacement != -1.0 && time != -1.0 && fvelocity != 1.0
+    {
+        acceleration = 2.0*(displacement - (fvelocity * time))/f64::powf(time, 2.0);
+    }
+    else if time == -1.0 && displacement != -1.0 && acceleration != -1.0 && fvelocity != 1.0
+    {
+        let d_vel:f64 = 2.0*fvelocity;
+        time = (-(d_vel) + f64::sqrt( (d_vel*d_vel) - 4.0 * (d_vel*-displacement*2.0)))/(d_vel*2.0);
     }
     //equation four, vf^2 = v0^2 + 2*acceleration*displacement
     if fvelocity == -1.0 && velocity != -1.0 && acceleration != -1.0 && displacement != -1.0
