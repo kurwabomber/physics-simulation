@@ -94,10 +94,11 @@ pub fn solve_kinematics() {
         time = (-(d_vel) + f64::sqrt( (d_vel*d_vel) - 4.0 * (d_vel*-displacement*2.0)))/(d_vel*2.0);
     }
     //equation four, vf^2 = v0^2 + 2*acceleration*displacement
+    //fucks sake i can't do this shit.
     if fvelocity == -1.0 && velocity != -1.0 && acceleration != -1.0 && displacement != -1.0
     {
         fvelocity = f64::sqrt(f64::powf(velocity, 2.0) + (2.0*acceleration*displacement));
-    }
+    }   
 
     println!("||| Solution |||\nTime = {}s\nInitial Velocity = {}m/s\nFinal Velocity = {}m/s\nAcceleration = {}m/s^2\nDisplacement = {}m", time, velocity, fvelocity, acceleration, displacement);
 }
