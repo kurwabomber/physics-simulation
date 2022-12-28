@@ -23,7 +23,6 @@ impl MathVector{
 
 pub fn solve_vector_addition() {
     println!("||| VECTOR ADDITION |||");
-    let mut i = 0;
     let mut vec1 = MathVector{
         scalar: 0.0,
         angle: 0.0,
@@ -33,24 +32,11 @@ pub fn solve_vector_addition() {
         angle: 0.0,
     };
 
-    //Get our two vectors
-    loop{
-        let value:f64 = get_user_number(format!("What's the magnitude of vector #{}?", i+1));
-        let angle:f64 = get_user_number(format!("What's the angle of vector #{}?", i+1));
-
-        if i == 0 {
-            vec1.scalar = value;
-            vec1.angle = angle;
-        }else{
-            vec2.scalar = value;
-            vec2.angle = angle;
-        }
-
-        i += 1;
-        if i >= 2{
-            break;
-        }
-    }
+    vec1.scalar = get_user_number(format!("What's the magnitude of vector #1?"));
+    vec1.angle = get_user_number(format!("What's the angle of vector #1?"));
+    vec2.scalar = get_user_number(format!("What's the magnitude of vector #2?"));
+    vec2.angle = get_user_number(format!("What's the angle of vector #2?"));
+    
     vec1.add_vector(vec2).print();
 }
 
