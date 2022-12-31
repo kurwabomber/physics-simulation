@@ -17,7 +17,6 @@ fn main() {
             1 => vector_addition::solve_vector_addition(),
             2 => planar_movement::solve_planar_movement(),
             3 => planar_movement::solve_kinematics(),
-            4 => 
             _ => println!("Not implemented."),
         }
     }
