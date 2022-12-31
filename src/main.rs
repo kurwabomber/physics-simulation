@@ -4,7 +4,7 @@ mod vector_addition;
 mod planar_movement;
 mod stocks;
 
-const APPLICATIONS: &'static [&'static str] = &["1. Vector Addition", "2. Planar Movement", "3. Kinematic Equations"];
+const APPLICATIONS: &'static [&'static str] = &["1. Vector Addition", "2. Planar Movement", "3. Kinematic Equations", "4. Friction", "5. Work, Energy, & Power", "6. Rotation", "7. Springs", "8. Waves", "9. Light", "10. Electric Fields/Forces", "11. Electrical Energy", "12. Circuits"];
 
 fn main() {
     loop{
@@ -17,7 +17,8 @@ fn main() {
             1 => vector_addition::solve_vector_addition(),
             2 => planar_movement::solve_planar_movement(),
             3 => planar_movement::solve_kinematics(),
-            _ => println!("Try an actual selection this time."),
+            4 => 
+            _ => println!("Not implemented."),
         }
     }
 }
