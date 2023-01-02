@@ -4,7 +4,7 @@ mod vector_addition;
 mod planar_movement;
 mod stocks;
 
-const APPLICATIONS: &'static [&'static str] = &["1. Vector Addition", "2. Planar Movement", "3. Kinematic Equations", "4. Friction", "5. Work, Energy, & Power", "6. Rotation", "7. Springs", "8. Waves", "9. Light", "10. Electric Fields/Forces", "11. Electrical Energy", "12. Circuits"];
+const APPLICATIONS: &'static [&'static str] = &["1. Vector Addition", "2. Planar Movement", "3. Kinematic Equations", "4. Work, Energy, & Power", "5. Rotation", "6. Springs", "7. Waves", "8. Light", "9. Electric Fields/Forces", "10. Electrical Energy", "11. Circuits"];
 
 fn main() {
     loop{
