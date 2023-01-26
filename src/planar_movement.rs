@@ -98,7 +98,19 @@ pub fn solve_kinematics() {
     if fvelocity == -1.0 && velocity != -1.0 && acceleration != -1.0 && displacement != -1.0
     {
         fvelocity = f64::sqrt(f64::powf(velocity, 2.0) + (2.0*acceleration*displacement));
-    }   
+    }
+    else if velocity == -1.0 && velocity != -1.0 && acceleration != -1.0 && displacement != -1.0
+    {
+        velocity = f64::sqrt(f64::powf(fvelocity, 2.0) - (2.0*acceleration*displacement));
+    }
+    else if displacement == -1.0 && velocity != -1.0 && acceleration != -1.0 && velocity != -1.0
+    {
+        displacement = (f64::powf(fvelocity, 2.0) - f64::powf(velocity, 2.0)) / (2.0*acceleration);
+    }
+    else if acceleration == -1.0 && velocity != -1.0 && displacement != -1.0 && velocity != -1.0
+    {
+        acceleration = (f64::powf(fvelocity, 2.0) - f64::powf(velocity, 2.0)) / (2.0*displacement);
+    }
 
     println!("||| Solution |||\nTime = {}s\nInitial Velocity = {}m/s\nFinal Velocity = {}m/s\nAcceleration = {}m/s^2\nDisplacement = {}m", time, velocity, fvelocity, acceleration, displacement);
 }
